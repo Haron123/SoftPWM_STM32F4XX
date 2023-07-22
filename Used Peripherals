@@ -1,0 +1,12 @@
+For Setup by HAL (As far as i know):
+
+PB3 JTDD_SWD
+PA14 JTICK
+PA13 JTMS
+
+From Users :
+
+PC13 ERROR_LED (by Haron)
+
+TIM3 for sw_pwm.h (by Haron)
+TIM2 for timer.h (by Haron)
