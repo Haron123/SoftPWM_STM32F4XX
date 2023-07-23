@@ -6,6 +6,10 @@
 #include "timer.h"
 #include "error_handler.h"
 
+#ifndef NULL
+#define NULL 0
+#endif
+
 /* TIMER CONFIG */
 #define TIMER3_CLOCK SystemCoreClock
 #define TIMER3_PRESCALER 0
