@@ -22,7 +22,7 @@ void gpio_setup_basic(GPIO_TypeDef* port, uint16_t pin, uint8_t port_mode)
     else
     {
         // Clear the Moder Bits before setting them
-        port->MODER &= ~(3 << pin);
+        port->MODER &= ~(3 << (pin * 2));
         port->MODER |= (port_mode << (pin * 2));
         
         // Clear the Purpdr Bits before setting them
@@ -34,7 +34,7 @@ void gpio_setup_basic(GPIO_TypeDef* port, uint16_t pin, uint8_t port_mode)
         //port->OTYPER |= (PUSH_PULL << pin); Happens implicit due writing a zero
 
         // Clear the OTYPER bits before setting them
-        port->OSPEEDR &= ~(3 << pin);
+        port->OSPEEDR &= ~(3 << (pin * 2));
         //port->OSPEEDR |= (LOW_SPEED << pin); Happens implicit due writing a zero
     }
 }
@@ -72,7 +72,7 @@ void gpio_setup_normal(GPIO_TypeDef* port, uint16_t pin, uint8_t port_mode, uint
     else
     {
         // Clear the Moder Bits before setting them
-        port->MODER &= ~(3 << pin);
+        port->MODER &= ~(3 << (pin * 2));
         port->MODER |= (port_mode << (pin * 2));
         
         // Clear the Purpdr Bits before setting them
@@ -84,7 +84,7 @@ void gpio_setup_normal(GPIO_TypeDef* port, uint16_t pin, uint8_t port_mode, uint
         //port->OTYPER |= (PUSH_PULL << pin); Happens implicit due writing a zero
 
         // Clear the OTYPER bits before setting them
-        port->OSPEEDR &= ~(3 << pin);
+        port->OSPEEDR &= ~(3 << (pin * 2));
         //port->OSPEEDR |= (LOW_SPEED << pin); Happens implicit due writing a zero
     }    
 }
@@ -130,7 +130,7 @@ void gpio_setup_full(GPIO_TypeDef* port, uint16_t pin, uint8_t port_mode, uint8_
     else
     {
         // Clear the Moder Bits before setting them
-        port->MODER &= ~(3 << pin);
+        port->MODER &= ~(3 << (pin * 2));
         port->MODER |= (port_mode << (pin * 2));
         
         // Clear the Purpdr Bits before setting them
@@ -142,7 +142,7 @@ void gpio_setup_full(GPIO_TypeDef* port, uint16_t pin, uint8_t port_mode, uint8_
         port->OTYPER |= (output_type << pin);
 
         // Clear the OTYPER bits before setting them
-        port->OSPEEDR &= ~(3 << pin);
+        port->OSPEEDR &= ~(3 << (pin * 2));
         port->OSPEEDR |= (speed << (pin * 2));
     }
 }
